@@ -1,0 +1,33 @@
+#user {width: 200px;text-align: center;border-left: 1px solid #ccc}
+#user p {margin: auto;padding-top: 4px;font-size: 18.2px;text-align: center;letter-spacing: -.2px;padding-top: 10px}
+#user img {margin: auto;height: 150px;border-radius: 100px;display: block;border: 1px solid rgba(255,255,255,.25)}
+#user h5 {visibility: hidden}
+
+input#id_avatar {width: 0.1px;height: 0.1px;opacity: 0;overflow: hidden;position: absolute;z-index: -1}
+
+form#formUpload label {text-overflow: ellipsis;white-space: nowrap;cursor: pointer;display: inline-block;overflow: hidden;color: #52616A;font-weight: 400;text-align: center;  vertical-align: middle;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;padding: .375rem .75rem;font-size: 1rem;line-height: 1.5}
+form#formUpload label:hover {text-decoration:underline}
+
+/*account.css*/
+#profile {background-color: #fff; border: 1px solid #ccc; border-radius: 0.25rem}
+#profile .card {border: 0px}
+#profile h5 {margin-bottom: 2.75rem;}
+
+#account label {text-align: right}
+#account input {border-color:#ccc}
+#account button {margin: 0px 0px 15px 188px}
+
+/*main.css*/
+.navbar {box-shadow: 0 -2px 3px -1px rgba(0,0,20,.12) inset, 0 -1px 1px rgba(0,0,0,.1) inset}
+
+#navicon {display: inline-block;cursor: pointer}
+
+.bar1, .bar2, .bar3 {width: 28px;height: 2px;background-color: #82defe;margin: 6px 0;transition: 0.4s}
+
+#logo {border-top:3px solid #FCA929;border-right: 1px solid #ccc}
+
+#sidebar {border-right: 1px solid #ccc}
+
+.sidebar-icon-only .bar1 {-webkit-transform: rotate(-45deg) translate(-6px, 6px);transform: rotate(-45deg) translate(-6px, 6px)}
+.sidebar-icon-only .bar2 {opacity: 0}
+.sidebar-icon-only .bar3 {-webkit-transform: rotate(45deg) translate(-5px, -6px);transform: rotate(45deg) translate(-5px, -6px)}

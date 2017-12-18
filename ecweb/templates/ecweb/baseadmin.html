@@ -18,15 +18,17 @@
       <div class=" container-scroller">
         <!--Navbar-->
         <nav class="navbar bg-primary-gradient col-lg-12 col-12 p-0 fixed-top navbar-inverse d-flex flex-row">
-            <div class="bg-white text-center navbar-brand-wrapper">
+
+            <div class="bg-white text-center navbar-brand-wrapper" id="logo">
                 <a class="navbar-brand brand-logo" href="/dashboard"><img src="{% static 'images/logo_star_black.png' %}" /></a>
                 <a class="navbar-brand brand-logo-mini" href="/dashboard"><img src="{% static 'images/logo_star_mini.jpg' %}" alt=""></a>
             </div>
-            <div class="navbar-menu-wrapper d-flex align-items-center">
-                <button class="navbar-toggler navbar-toggler hidden-md-down align-self-center mr-3" type="button" data-toggle="minimize">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-
+            <div class="navbar-menu-wrapper d-flex align-items-center" id="top">
+                <div id="navicon" data-toggle="minimize">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
                 <ul class="navbar-nav ml-lg-auto d-flex align-items-center flex-row">
                     <li class="nav-item">
                         <a class="nav-link profile-pic" href="#"><img class="rounded-circle" src="{{ current_user.avatar.url}}" alt=""></a>
@@ -41,7 +43,9 @@
                 <button class="navbar-toggler navbar-toggler-right hidden-lg-up align-self-center" type="button" data-toggle="offcanvas">
                   <span class="navbar-toggler-icon"></span>
                 </button>
+
             </div>
+
         </nav>
         <!--End navbar-->
         <div class="container-fluid">

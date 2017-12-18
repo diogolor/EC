@@ -4,6 +4,7 @@
 {% block head %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{% static '/css/libs/cropper.min.css' %}" rel="stylesheet">
+    <link href="{% static '/css/changeavatar.css' %}" rel="stylesheet">
 
 {% endblock %}
 
@@ -11,7 +12,7 @@
 
 {% block js %}
     <script src="{% static 'js/libs/cropper.min.js' %}"></script>
-    
+
     <script>
     $(function () {
 
@@ -72,65 +73,103 @@
 {% endblock %}
 
 {% block content %}
-                <div class="content-wrapper">
+<div class="content-wrapper" id="sdashboard">
+    <h3 class="text-primary mb-4">Manage your account</h3>
+    <div class="user-info">
+        <div class="container-fluid">
 
-                    <h3 class="text-primary mb-4">Student Dashboard</h3>
+            <div class="row" id="profile">
+                <div class="col-6 col-md-4">
 
-<center>
-                <div class="user-info">
-                    <img src="{{ current_user.avatar.url}}" class="rounded-circle" alt="" width="304" height="236">
+                     <div class="card">
+                        <div class="card-block">
+                            <div id="account">
+                                <h5 class="card-title">Account settings</h5>
+                                <form>
+                                    <div class="form-group row">
+                                        <label for="id_name" class="col-sm-4 col-form-label">Name</label>
+                                        <div class="col-sm-6">
+                                          <input type="text" class="form-control" id="id_name" placeholder="Name">
+                                        </div>
+                                    </div>
 
-                    <br><br><br>
+                                    <div class="form-group row">
+                                        <label for="id_email" class="col-sm-4 col-form-label">Email</label>
+                                        <div class="col-sm-6">
+                                          <input type="email" class="form-control" id="id_email" placeholder="Email">
+                                        </div>
+                                    </div>
 
-<div class="container">
-  <form method="post" enctype="multipart/form-data" id="formUpload">
-    {% csrf_token %}
-    {{ form.as_p }}
+                                    <div class="form-group row">
+                                        <label for="id_password" class="col-sm-4 col-form-label">Password</label>
+                                        <div class="col-sm-6">
+                                          <input type="password" class="form-control" id="id_password" placeholder="Password">
+                                        </div>
+                                    </div>
 
+                                    <div class="form-group row">
+                                        <label for="id_confirm_password" class="col-sm-4 col-form-label">Confirm Password</label>
+                                        <div class="col-sm-6">
+                                          <input type="password" class="form-control" id="id_confirm_password" placeholder="Confirm Password">
+                                        </div>
+                                    </div>
 
-  </form>
-
-   <!-- MODAL TO CROP THE IMAGE -->
-  <div class="modal fade" id="modalCrop">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h4 class="modal-title">Crop the photo</h4>
-        </div>
-        <div class="modal-body">
-          <img src="" id="image" style="max-width: 100%;">
-        </div>
-        <div class="modal-footer">
-          <div class="btn-group pull-left" role="group">
-            <button type="button" class="btn btn-default js-zoom-in">
-              <span class="glyphicon glyphicon-zoom-in"></span>
-            </button>
-            <button type="button" class="btn btn-default js-zoom-out">
-              <span class="glyphicon glyphicon-zoom-out"></span>
-            </button>
-          </div>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Nevermind</button>
-          <button type="button" class="btn btn-primary js-crop-and-upload">Crop and upload</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-</div>
-
-                    <br><br><br>
-                    <p class="name">{{current_user.first_name}}</p>
-                    {% if current_user.is_staff == True%}
-                    <p class="designation">Staff</p>
-                    {% else %}
-                    <p class="designation">Student</p>
-                    {% endif %}
-                    <span class="online"></span>
+                                    <div class="form-group row">
+                                        <button type="submit" class="btn btn-outline-primary">Save</button>
+                                    </div>
+                                </form>
+                            </div>
+                         </div>
+                    </div>
                 </div>
-</center>
+
+                <div class="col-12 col-sm-6 col-md-8">
+                    <div class="card">
+                        <div class="card-block">
+                            <h5 class="card-title"></h5>
+                            <div id="user">
+                                <img src="{{ current_user.avatar.url}}" class="rounded-circle">
+                                <form method="post" enctype="multipart/form-data" id="formUpload">
+                                    {% csrf_token %}
+                                    {{ form.as_p }}
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- MODAL TO CROP THE IMAGE -->
+            <div class="modal fade" id="modalCrop">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Crop the photo</h4>
+                        </div>
+                        <div class="modal-body">
+                            <img src="" id="image" style="max-width: 100%;">
+                        </div>
+                        <div class="modal-footer">
+                            <div class="btn-group pull-left" role="group">
+                                <button type="button" class="btn btn-default js-zoom-in">
+                                    <span class="glyphicon glyphicon-zoom-in"></span>
+                                </button>
+                                <button type="button" class="btn btn-default js-zoom-out">
+                                    <span class="glyphicon glyphicon-zoom-out"></span>
+                                </button>
+                            </div>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Nevermind</button>
+                          <button type="button" class="btn btn-primary js-crop-and-upload">Crop and upload</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
